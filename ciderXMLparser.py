@@ -62,30 +62,30 @@ writer.writerow(header_list)
 # write data rows
 for item in root.iter('item'):
 	
-	# create new dictionary for this item's info
-	row_data = {}
+    # create new dictionary for this item's info
+    row_data = {}
 	
-	# iterate over attributes and write data to row_data
-	for key, value in xml_attributes.iteritems():
-		try:
-		    row_data['%s' % key] = str(item.get(value).encode('utf8'))
-		except AttributeError:
-		    row_data['%s' % key] = ''
+    # iterate over attributes and write data to row_data
+    for key, value in xml_attributes.iteritems():
+        try:
+            row_data['%s' % key] = str(item.get(value).encode('utf8'))
+        except AttributeError:
+	    row_data['%s' % key] = ''
 	
-	# iterate over elements and write data to row_data
+    # iterate over elements and write data to row_data
     for key, value in xml_elements.iteritems():
         try:
-		    row_data['%s' % key] = str(item.find(value).text.encode('utf8'))
+            row_data['%s' % key] = str(item.find(value).text.encode('utf8'))
         except AttributeError:
-		    row_data['%s' % key] = ''
+            row_data['%s' % key] = ''
 
-	# print row to CSV
-	row_values = []
+    # print row to CSV
+    row_values = []
     for key in xml_attributes.iterkeys():
-	    row_values.append(row_data[key])
-	for key in xml_elements.iterkeys():
-	    row_values.append(row_data[key])
-	writer.writerow(row_values)
+	row_values.append(row_data[key])
+    for key in xml_elements.iterkeys():
+	row_values.append(row_data[key])
+    writer.writerow(row_values)
 
 output_file.close()
 
