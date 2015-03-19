@@ -42,12 +42,12 @@ xml_attributes = (('item_number', 'number'),
 xml_attributes = collections.OrderedDict(xml_attributes)
 				  
 xml_elements = (('title', './title'), 
-				('restrictions', './restrictions'), 
-				('dc_type', './dcType'), 
-				('location', './classes/digitalObject/location'), 
-				('pid', './classes/digitalObject/pid'), 
-				('notes', './classes/digitalObject/notes'), 
-				('original_filename', './classes/digitalObject/originalFilename'))
+		('restrictions', './restrictions'), 
+		('dc_type', './dcType'), 
+		('location', './classes/digitalObject/location'), 
+		('pid', './classes/digitalObject/pid'), 
+		('notes', './classes/digitalObject/notes'), 
+		('original_filename', './classes/digitalObject/originalFilename'))
 xml_elements = collections.OrderedDict(xml_elements)
 
 # write csv header row
